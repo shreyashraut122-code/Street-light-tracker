@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Streetlight Fault & Darkness Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans min-h-screen p-6">
+
+  <!-- Header -->
+  <header class="max-w-6xl mx-auto flex justify-between items-center mb-8 bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl">
+    <div>
+      <h1 class="text-2xl font-bold text-amber-400 flex items-center gap-3">
+        <i class="fa-solid fa-lightbulb"></i> Smart City Streetlight Grid Monitor
+      </h1>
+      <p class="text-xs text-slate-400 mt-1">DTIL Social Impact Project • Real-Time Fault & Darkness Telemetry</p>
+    </div>
+    <div class="flex items-center gap-3">
+      <span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-3 py-1.5 rounded-full text-xs font-semibold flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Municipal Grid Live
+      </span>
+    </div>
+  </header>
+
+  <!-- Main Grid -->
+  <main class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+
+    <!-- Pole 1 (Normal) -->
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between shadow-lg">
+      <div>
+        <div class="flex justify-between items-start mb-4">
+          <div>
+            <h3 class="text-lg font-bold text-white">Pole #104</h3>
+            <p class="text-xs text-slate-400">MG Road • Sector 4</p>
+          </div>
+          <span class="bg-emerald-500/10 text-emerald-400 text-xs px-2.5 py-1 rounded-lg font-medium">Normal</span>
+        </div>
+        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800/60 my-4 text-center">
+          <p class="text-xs text-slate-400">Light Intensity (Lux)</p>
+          <p class="text-3xl font-black text-emerald-400 mt-1">450 lux</p>
+          <p class="text-xs text-slate-500 mt-1">Status: Lamp Glowing normally</p>
+        </div>
+      </div>
+      <div class="border-t border-slate-800 pt-4 text-xs text-slate-400 flex justify-between">
+        <span>Power: <strong class="text-emerald-400">ON</strong></span>
+        <span>Solar Batt: 88%</span>
+      </div>
+    </div>
+
+    <!-- Pole 2 (Faulty / Unlit) -->
+    <div class="bg-rose-950/20 border border-rose-500/30 rounded-2xl p-6 flex flex-col justify-between shadow-lg">
+      <div>
+        <div class="flex justify-between items-start mb-4">
+          <div>
+            <h3 class="text-lg font-bold text-white">Pole #105 (FAULTY)</h3>
+            <p class="text-xs text-slate-400">Suburban Lane 2 • Dark Zone</p>
+          </div>
+          <span class="bg-rose-500/10 text-rose-400 text-xs px-2.5 py-1 rounded-lg font-medium border border-rose-500/30 animate-pulse">Alert Active</span>
+        </div>
+        <div class="bg-slate-950 p-4 rounded-xl border border-rose-500/30 my-4 text-center">
+          <p class="text-xs text-slate-400">Light Intensity (Lux)</p>
+          <p class="text-3xl font-black text-rose-400 mt-1">2 lux</p>
+          <p class="text-xs text-rose-400 mt-1 font-semibold">FAINT/UNLIT: Bulb Burnout Detected!</p>
+        </div>
+      </div>
+      <div class="border-t border-slate-800 pt-4 text-xs text-slate-400 flex justify-between">
+        <span>Power Relay: <strong class="text-emerald-400">ON</strong></span>
+        <span>Ticket: <strong class="text-rose-400">Dispatched</strong></span>
+      </div>
+    </div>
+
+    <!-- Pole 3 (Normal Day/Off Mode) -->
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between shadow-lg">
+      <div>
+        <div class="flex justify-between items-start mb-4">
+          <div>
+            <h3 class="text-lg font-bold text-white">Pole #106</h3>
+            <p class="text-xs text-slate-400">College Avenue</p>
+          </div>
+          <span class="bg-slate-500/10 text-slate-400 text-xs px-2.5 py-1 rounded-lg font-medium">Daytime (Off)</span>
+        </div>
+        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800/60 my-4 text-center">
+          <p class="text-xs text-slate-400">Ambient Sunlight</p>
+          <p class="text-3xl font-black text-sky-400 mt-1">12,400 lux</p>
+          <p class="text-xs text-slate-500 mt-1">Status: Standby mode</p>
+        </div>
+      </div>
+      <div class="border-t border-slate-800 pt-4 text-xs text-slate-400 flex justify-between">
+        <span>Power: <strong class="text-slate-500">OFF</strong></span>
+        <span>Solar Batt: 100%</span>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Municipal Action Log -->
+  <section class="max-w-6xl mx-auto mt-8 bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl">
+    <h2 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+      <i class="fa-solid fa-triangle-exclamation text-amber-400"></i> Active Municipal Fault Dispatch Log
+    </h2>
+    <div class="overflow-x-auto">
+      <table class="w-full text-left text-xs text-slate-300">
+        <thead class="bg-slate-950 text-slate-400 uppercase tracking-wider">
+          <tr>
+            <th class="p-3">Pole ID</th>
+            <th class="p-3">Location</th>
+            <th class="p-3">Issue Detected</th>
+            <th class="p-3">Time Flagged</th>
+            <th class="p-3">Status</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-800">
+          <tr class="bg-rose-950/10">
+            <td class="p-3 font-bold text-white">#105</td>
+            <td class="p-3">Suburban Lane 2</td>
+            <td class="p-3 text-rose-400">Bulb Burnout / Unlit at Night</td>
+            <td class="p-3">10:42 PM</td>
+            <td class="p-3"><span class="bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded border border-amber-500/30">Crew Assigned</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</body>
+</html>
